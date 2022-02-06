@@ -32,18 +32,18 @@
     }
     public class ServiceLocator : IService
     {
-        public Dictionary<object, object> servicecontainer = null;
+        public Dictionary<object, object> serviceContainer = null;
         public ServiceLocator()
         {
-            servicecontainer = new Dictionary<object, object>();
-            servicecontainer.Add(typeof(IServiceA), new ServiceA());
-            servicecontainer.Add(typeof(IServiceB), new ServiceB());
+            serviceContainer = new Dictionary<object, object>();
+            serviceContainer.Add(typeof(IServiceA), new ServiceA());
+            serviceContainer.Add(typeof(IServiceB), new ServiceB());
         }
         public T GetService<T>()
         {
             try
             {
-                return (T)servicecontainer[typeof(T)];
+                return (T)serviceContainer[typeof(T)];
             }
             catch (Exception ex)
             {

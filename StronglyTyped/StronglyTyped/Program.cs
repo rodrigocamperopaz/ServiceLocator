@@ -14,6 +14,7 @@
     public interface IServiceLocator
     {
         IService LoggingService { get; set; }
+        IService LoggingService2 { get; set; }
     }
 
     public class ServiceLocator : IServiceLocator
@@ -22,6 +23,17 @@
 
         //Service locator function returning strong type   
         public IService LoggingService
+        {
+            get
+            {
+                if (ObjService == null) return new LoggingService();
+                return ObjService;
+            }
+            set { ObjService = value; }
+        }
+
+        //Service locator function returning strong type   
+        public IService LoggingService2
         {
             get
             {
